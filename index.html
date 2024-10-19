@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Data Generator</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="container text-light text-center">
+      <h1 style="font-size: 2rem" class="py-2 rounded">
+        Color prediction Game
+      </h1>
+      <br />
+      <div class="row justify-content-around align-items-center">
+        <button class="btn btn-primary py-1" id="startButton">
+          <b>Start</b>
+        </button>
+        <p class="text-warning">
+          <b>Sec : <span id="countdown">5</span></b>
+        </p>
+        <a href="" class="btn btn-warning py-1" id="startButton"><b>Stop</b></a>
+      </div>
+
+      <table class="table table-hover text-light table-bordered mt-3">
+        <thead>
+          <tr class="bg-dark">
+            <th>Word</th>
+            <th>Color</th>
+            <th>Number</th>
+          </tr>
+        </thead>
+        <tbody id="dataTable">
+          <!-- Random data will be appended here -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      let countdownInterval;
+      const words = ["Big", "Small"];
+      const colors = ["Red", "Green", "Violet"];
+
+      // start function
+      function startGenerating() {
+        // Reset countdown
+        clearInterval(countdownInterval);
+        let countdown = 5;
+        document.getElementById("countdown").textContent = countdown;
+
+        // Random words
+        function getRandomWord() {
+          const randomIndex = Math.floor(Math.random() * words.length);
+          return words[randomIndex];
+        }
+
+        // Random color
+        function getRandomColor() {
+          const randomIndex = Math.floor(Math.random() * colors.length);
+          return colors[randomIndex];
+        }
+
+        // Random number
+        function getRandomNumber() {
+          return Math.floor(Math.random() * 10); // Random number between 0-9
+        }
+
+        countdownInterval = setInterval(() => {
+          countdown--;
+          document.getElementById("countdown").textContent = countdown;
+
+          if (countdown <= 0) {
+            const word = getRandomWord();
+            const color = getRandomColor();
+            const number = getRandomNumber();
+
+            const tableBody = document.getElementById("dataTable");
+
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                    <td>${word}</td>
+                    <td>
+                        <div class="color-box" style="background-color: ${color};"></div>${color}
+                    </td>
+                    <td>${number}</td>
+                `;
+
+            tableBody.appendChild(newRow);
+            countdown = 5; // Reset countdown
+          }
+        }, 1000);
+      }
+
+      document
+        .getElementById("startButton")
+        .addEventListener("click", startGenerating);
+
+      // End function
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

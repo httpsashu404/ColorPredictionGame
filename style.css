@@ -1,0 +1,17 @@
+body {
+  background-color: #49688e;
+}
+h1 {
+  background-color: #294a70;
+}
+tr {
+  height: min-content;
+  background-color: #294a70;
+}
+.color-box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: 1px solid #000;
+  margin-right: 10px;
+}
