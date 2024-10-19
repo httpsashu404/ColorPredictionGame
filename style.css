@@ -8,17 +8,14 @@ tr {
   height: min-content;
   background-color: #294a70;
 }
+.des{
+  letter-spacing: 1px;
+  text-shadow: 1px 1px black;
+}
 .color-box {
   width: 20px;
   height: 20px;
   display: inline-block;
   border: 1px solid #000;
   margin-right: 10px;
-}
-.footer{
-  opacity: .05;
-  z-index: -1;
-  font-size: 62px;
-  transform: rotateZ(340deg);
-  position: relative;
 }
