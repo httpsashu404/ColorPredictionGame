@@ -1,4 +1,4 @@
-﻿# ColorPredictionGame
+﻿# Color Prediction Game
 
 अगर हमारी बाते समझ आ जाए तो अपने दोस्तों के साथ जरूर शेयर करे। <br/>
 **Live :** https://httpsashu404.github.io/ColorPredictionGame/ <br/><br/>
