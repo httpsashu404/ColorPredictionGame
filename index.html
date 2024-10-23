@@ -77,7 +77,7 @@
       function startGenerating() {
         // Reset countdown
         clearInterval(countdownInterval);
-        let countdown = 5;
+        let countdown = 30;
         document.getElementById("countdown").textContent = countdown;
 
         // Random words
@@ -118,7 +118,7 @@
                 `;
 
             tableBody.appendChild(newRow);
-            countdown = 5; // Reset countdown
+            countdown = 30; // Reset countdown
           }
         }, 1000);
       }
